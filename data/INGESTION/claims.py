@@ -1,21 +1,25 @@
-# Databricks notebook source
-from pyspark.sql import SparkSession, functions as f
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import when, input_file_name
 
 # Create Spark session
 spark = SparkSession.builder \
     .appName("Healthcare Claims Ingestion") \
     .getOrCreate()
 
-BUCKET_NAME = "healthcare-bucket-22032025"
-BQ_TABLE = "avd-databricks-demo.bronze_dataset.claims"
-TEMP_GCS_BUCKET = "healthcare-bucket-22032025/temp/"
+BUCKET_NAME = "health_care_buckets"
+CLAIMS_BUCKET_PATH = f"gs://{BUCKET_NAME}/landing/claims/*.csv"
+BQ_TABLE = "avd-group-gcp.bronze_dataset.claims"
+TEMP_GCS_BUCKET = f"{BUCKET_NAME}/temp/"
 
-claims_df=spark.read.csv(f"gs://{BUCKET_NAME}/landing/claims/*.csv",header=True)
+# Read from claims sources
+claims_df = spark.read.csv(CLAIMS_BUCKET_PATH, header=True)
 
+# Add datasource column based on file name
 claims_df = claims_df.withColumn(
     "datasource",
-    f.when(f.input_file_name().contains("hospital1"), "hosa").when(f.input_file_name().contains("hospital2"), "hosb")
-     .otherwise(None)
+    when(input_file_name().contains("hospital2"), "hosb")
+    .when(input_file_name().contains("hospital1"), "hosa")
+    .otherwise("None")
 )
 
 # Write DataFrame to BigQuery

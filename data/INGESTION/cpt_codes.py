@@ -6,9 +6,10 @@ spark = SparkSession.builder \
     .appName("CPT Codes Ingestion") \
     .getOrCreate()
 
-BUCKET_NAME = "healthcare-bucket-22032025"
-BQ_TABLE = "avd-databricks-demo.bronze_dataset.cpt_codes"
-TEMP_GCS_BUCKET = "healthcare-bucket-22032025/temp/"
+BUCKET_NAME = "health_care_buckets"
+CPT_BUCKET_PATH = f"gs://{BUCKET_NAME}/landing/cptcodes/*.csv"
+BQ_TABLE = "avd-group-gcp.bronze_dataset.cpt_codes"
+TEMP_GCS_BUCKET = f"health_care_buckets/temp/"
 
 # Read the CSV file
 cptcodes_df = spark.read.csv(f"gs://{BUCKET_NAME}/landing/cptcodes/*.csv", header=True)
