@@ -10,7 +10,7 @@ from airflow.providers.google.cloud.operators.dataproc import (
 )
 
 # define the variables
-PROJECT_ID = "avd-databricks-demo"
+PROJECT_ID = "avd-group-gcp"
 REGION = "us-east1"
 CLUSTER_NAME = "my-demo-cluster"
 COMPOSER_BUCKET = "us-central1-demo-instance-a649b781-bucket" ## change this 
