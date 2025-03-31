@@ -11,11 +11,6 @@ bq_client = bigquery.Client()
 # Initialize Spark Session
 spark = SparkSession.builder.appName("HospitalAMySQLToLanding").getOrCreate()
 
-<<<<<<< HEAD
-# Google Cloud Storage (GCS) Configuration
-=======
-# Google Cloud Storage (GCS) Configuration 
->>>>>>> 6d328dceb72a49527d6403cd188410d72f12aad4
 GCS_BUCKET = "health_care_buckets"
 HOSPITAL_NAME = "hospital-a"
 LANDING_PATH = f"gs://{GCS_BUCKET}/landing/{HOSPITAL_NAME}/"
