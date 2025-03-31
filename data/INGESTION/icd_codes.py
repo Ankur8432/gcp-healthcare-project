@@ -12,7 +12,7 @@ API_VERSION = 'v2'
 ACCEPT_LANGUAGE = 'en'
 ROOT_URL = 'https://id.who.int/icd/release/10/2019/A00-A09'
 
-# Function to obtain OAuth2 token
+# Function to obtain OAuth2 token ss
 def get_access_token():
     payload = {
         'client_id': CLIENT_ID,
