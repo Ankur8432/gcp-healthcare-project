@@ -8,7 +8,7 @@ import json
 storage_client = storage.Client()
 bq_client = bigquery.Client()
 
-# Initialize Spark Session
+# Initialize Spark Sessions
 spark = SparkSession.builder.appName("HospitalAMySQLToLanding").getOrCreate()
 
 # Google Cloud Storage (GCS) Configuration
