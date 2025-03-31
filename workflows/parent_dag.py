@@ -17,7 +17,7 @@ ARGS = {
     "retry_delay": timedelta(minutes=5)
 }
 
-# Define the parent DAG
+# Define the parent DAG 1
 with DAG(
     dag_id="parent_dag",
     schedule_interval="0 5 * * *",

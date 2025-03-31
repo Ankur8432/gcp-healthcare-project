@@ -66,7 +66,7 @@ with DAG(
         },
     )
 
-    # Task to create gold table
+    # Task to create gold table  hdh
     gold_tables = BigQueryInsertJobOperator(
         task_id="gold_tables",
         configuration={
