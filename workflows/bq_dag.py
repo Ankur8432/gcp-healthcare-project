@@ -5,7 +5,7 @@ from airflow.utils.dates import days_ago
 from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
 
 # Define constants
-PROJECT_ID = "avd-databricks-demo"
+PROJECT_ID = "avd-group-gcp"
 LOCATION = "US"
 SQL_FILE_PATH_1 = "C:\Users\ankur\gcp-healthcare-project\data\BQ\bronze.sql"
 SQL_FILE_PATH_2 = "C:\Users\ankur\gcp-healthcare-project\data\BQ\silver.sql"
