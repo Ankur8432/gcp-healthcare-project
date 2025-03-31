@@ -29,14 +29,14 @@ with DAG(
     # Task to trigger PySpark DAG
     trigger_pyspark_dag = TriggerDagRunOperator(
         task_id="trigger_pyspark_dag",
-        trigger_dag_id="pyspark_dag",
+        trigger_dag_id="pyspark_dag",  # give the pyspark dag id
         wait_for_completion=True,
     )
 
     # Task to trigger BigQuery DAG
     trigger_bigquery_dag = TriggerDagRunOperator(
         task_id="trigger_bigquery_dag",
-        trigger_dag_id="bigquery_dag",
+        trigger_dag_id="bigquery_dag",   # give the big_query dag id
         wait_for_completion=True,
     )
 

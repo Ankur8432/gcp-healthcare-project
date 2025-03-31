@@ -62,5 +62,3 @@ OPTIONS (
   format = 'JSON',
   uris = ['gs://health_care_buckets/landing/hospital-b/transactions/*.json']
 );
-
----------------------------------------------------------------------------------------------------------------------------
